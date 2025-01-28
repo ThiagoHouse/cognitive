@@ -1,6 +1,7 @@
-# cognitive
+# Cognitive
+## Aplicação web para exercitar o cognitivo
 
-Explicação do código:
+### Explicação do código:
 Caixa de Cores:
 
 A cor é gerada aleatoriamente entre as opções definidas e exibida dentro de uma caixa (#colorBox). O nome da cor também aparece dentro da caixa.
