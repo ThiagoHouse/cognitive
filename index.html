@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício Cognitivo: Cores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #colorBox {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+            border-radius: 10px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        #timer {
+            font-size: 30px;
+            margin-top: 20px;
+            color: #9024e9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercício Cognitivo: Identifique a Cor</h1>
+    <p>Observe a cor e clique no botão correspondente antes de 5 segundos!</p>
+
+    <!-- Caixa de Cores -->
+    <div id="colorBox">Azul</div>
+
+    <!-- Contador de Tempo -->
+    <div id="timer">5</div>
+
+    <!-- Respostas de Cores -->
+    <div>
+        <button class="btn" onclick="checkColor('Pink')">Rosa</button>
+        <button class="btn" onclick="checkColor('Green')">Verde</button>
+        <button class="btn" onclick="checkColor('Blue')">Azul</button>
+        <button class="btn" onclick="checkColor('Yellow')">Amarelo</button>
+    </div>
+
+    <!-- Resultado -->
+    <div id="result"></div>
+
+    <script>
+        // Lista de cores e seus nomes
+        const colors = ['Pink', 'Green', 'Blue', 'Yellow'];
+        const colorNames = ['Rosa', 'Verde', 'Azul', 'Amarelo'];
+        let currentColor = '';
+        let timerId;
+        let remainingTime = 5;
+
+        // Função para gerar uma cor aleatória e exibir na tela
+        function showColor() {
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            currentColor = colors[randomIndex];
+
+            // Exibe a cor na caixa
+            document.getElementById('colorBox').style.backgroundColor = currentColor.toLowerCase();
+            document.getElementById('colorBox').textContent = colorNames[randomIndex];
+
+            // Reseta o contador de tempo
+            remainingTime = 5;
+            document.getElementById('timer').textContent = remainingTime;
+
+            // Inicia o contador regressivo
+            timerId = setInterval(() => {
+                remainingTime--;
+                document.getElementById('timer').textContent = remainingTime;
+
+                // Quando o tempo acabar
+                if (remainingTime <= 0) {
+                    clearInterval(timerId);
+                    document.getElementById('result').textContent = 'Tempo esgotado! A cor era ' + colorNames[randomIndex];
+                    document.getElementById('result').style.color = 'red';
+                    setTimeout(showColor, 2000); // Mostra nova cor após 2 segundos
+                }
+            }, 1000); // Decrementa a cada 1 segundo
+        }
+
+        // Função para verificar a resposta do paciente
+        function checkColor(selectedColor) {
+            clearInterval(timerId); // Limpa o contador se o paciente clicar antes de 5 segundos
+
+            if (selectedColor.toLowerCase() === currentColor.toLowerCase()) {
+                document.getElementById('result').textContent = 'Cor correta!';
+                document.getElementById('result').style.color = 'green';
+            } else {
+                document.getElementById('result').textContent = 'Cor errada. A cor era ' + currentColor;
+                document.getElementById('result').style.color = 'pink';
+            }
+
+            setTimeout(showColor, 2000); // Mostra nova cor após 2 segundos
+        }
+
+        // Inicia o exercício ao carregar a página
+        window.onload = showColor;
+    </script>
+</body>
+</html>
