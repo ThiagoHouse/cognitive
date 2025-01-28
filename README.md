@@ -7,7 +7,7 @@ A cor é gerada aleatoriamente entre as opções definidas e exibida dentro de u
 A cor é mostrada por 5 segundos ou até que o paciente clique em uma das opções de resposta. Caso o paciente não clique até o tempo limite, é exibida uma mensagem dizendo "Tempo esgotado!".
 Respostas:
 
-O paciente pode clicar em um dos botões de cor (Vermelho, Verde, Azul ou Amarelo) para tentar adivinhar a cor mostrada.
+O paciente pode clicar em um dos botões de cor (Rosa, Verde, Azul ou Amarelo) para tentar adivinhar a cor mostrada.
 Se a resposta estiver correta, aparece "Cor correta!" em verde, caso contrário, "Cor errada" é exibida com a cor correta em vermelho.
 Controle de Tempo:
 
