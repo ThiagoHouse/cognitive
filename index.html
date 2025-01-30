@@ -28,7 +28,7 @@
             cursor: pointer;
         }
         #result {
-            margin-top: 20px;
+            margin-top: 10px;
             font-size: 20px;
         }
         #timer {
@@ -61,11 +61,11 @@
 
     <script>
         // Lista de cores e seus nomes
-        const colors = ['Pink', 'Green', 'Blue', 'Yellow'];
+        const colors = ['Pink', 'LightGreen', 'Blue', 'Yellow'];
         const colorNames = ['Rosa', 'Verde', 'Azul', 'Amarelo'];
         let currentColor = '';
         let timerId;
-        let remainingTime = 5;
+        let remainingTime = 2;
 
         // Função para gerar uma cor aleatória e exibir na tela
         function showColor() {
@@ -101,7 +101,7 @@
 
             if (selectedColor.toLowerCase() === currentColor.toLowerCase()) {
                 document.getElementById('result').textContent = 'Cor correta!';
-                document.getElementById('result').style.color = 'green';
+                document.getElementById('result').style.color = 'lightgreen';
             } else {
                 document.getElementById('result').textContent = 'Cor errada. A cor era ' + currentColor;
                 document.getElementById('result').style.color = 'pink';
